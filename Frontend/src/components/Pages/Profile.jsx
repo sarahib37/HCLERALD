@@ -28,7 +28,7 @@ function Profile() {
     try{
       dispatch(updateUserStart())
 
-      const res = await fetch(`http://localhost:3000/api/user/update/${currentUser.uid}`, {
+      const res = await fetch(`https://hclerald.vercel.app/api/user/update/${currentUser.uid}`, {
         method: 'POST',
         headers:{
           'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ function Profile() {
     try{
       dispatch(deleteUserStart())
 
-      const res = await fetch(`http://localhost:3000/api/user/delete/${currentUser.uid}`, {
+      const res = await fetch(`https://hclerald.vercel.app/api/user/delete/${currentUser.uid}`, {
         method: 'DELETE',
         headers:{
           'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ function Profile() {
   async function handleSignout(){
     try{
       dispatch(signOutUserStart())
-      const res = await fetch('http://localhost:3000/api/auth/signout')
+      const res = await fetch('https://hclerald.vercel.app/api/auth/signout')
       const data = await res.json()
 
       if(!data.success){

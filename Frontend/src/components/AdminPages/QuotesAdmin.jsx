@@ -24,7 +24,7 @@ function QuotesAdmin() {
   const fetchQuotes = async () => {
     try {
       setLoading(true)
-      const data = await axios.get('http://localhost:3000/api/quote/quotes')
+      const data = await axios.get('https://hclerald.vercel.app/api/quote/quotes')
       setQuotes(data.data)
       dispatch(updateQuotes(data.data))
     } catch (error) {
@@ -40,7 +40,7 @@ function QuotesAdmin() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this quote?')) {
       try {
-        await axios.delete(`http://localhost:3000/api/quote/quotes/${id}`)
+        await axios.delete(`https://hclerald.vercel.app/api/quote/quotes/${id}`)
         setQuotes((prevQuotes) => prevQuotes.filter((quote) => quote.id !== id))
         alert('Quote deleted successfully!')
       } catch (error) {

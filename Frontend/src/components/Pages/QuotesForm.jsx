@@ -49,7 +49,7 @@ function QuotesForm() {
 
                     try {
                         const uploadRes = await axios.post(
-                            "http://localhost:3000/api/quote/uploadImage",
+                            "https://hclerald.vercel.app/api/quote/uploadImage",
                             formDataImage,
                             {
                                 headers: {
@@ -77,12 +77,12 @@ function QuotesForm() {
             }
 
             const res = await axios.post(
-                "http://localhost:3000/api/quote/addQuote",
+                "https://hclerald.vercel.app/api/quote/addQuote",
                 quoteData
             )
 
             if (res.status === 201) {
-                const data = await axios.get('http://localhost:3000/api/quote/quotes')
+                const data = await axios.get('https://hclerald.vercel.app/api/quote/quotes')
                 dispatch(addQuoteSuccess(data.data))
                 navigate("/quotes")
             } else {

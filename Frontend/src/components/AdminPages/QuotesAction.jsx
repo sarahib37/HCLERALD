@@ -45,7 +45,7 @@ function QuotesAction() {
             return
         }
         try {
-            const response = await fetch(`http://localhost:3000/api/quote/updateQuote/${id}`, {
+            const response = await fetch(`https://hclerald.vercel.app/api/quote/updateQuote/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

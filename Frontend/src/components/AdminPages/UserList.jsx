@@ -21,7 +21,7 @@ function AdminPanel() {
     const fetchUsers = async () => {
         try {
             setLoading(true);
-            const data = await axios.get('http://localhost:3000/api/user/users');
+            const data = await axios.get('https://hclerald.vercel.app/api/user/users');
             setUsers(data.data);
             dispatch(updateUserRoles(data.data));
         } catch (error) {
@@ -32,7 +32,7 @@ function AdminPanel() {
 
     const updateUserRole = async (userID, isAdmin) => {
         try {
-            await axios.patch(`http://localhost:3000/api/user/users/${userID}`, { admin: isAdmin });
+            await axios.patch(`https://hclerald.vercel.app/api/user/users/${userID}`, { admin: isAdmin });
             const updatedUsers = users.map((user) =>
                 user.id === userID ? { ...user, admin: isAdmin } : user
             );
