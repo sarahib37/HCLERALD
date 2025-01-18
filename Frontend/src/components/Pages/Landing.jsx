@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import LandingBG from "../../assets/LandingBG.webp"
 import Hand from '../../assets/HandShake.webp'
 import Clay from '../../assets/ClayMould.webp'
@@ -6,24 +6,14 @@ import Thanks from '../../assets/ThankLocal.webp'
 import { Link } from 'react-router-dom'
 
 function Landing() {
-  const [isLoading, setIsLoading] = useState({
-    hand: true,
-    clay: true,
-    thanks: true,
-  })
-
   useEffect(() => {
-    window.scroll(0,0)
-  })
-
-  const handleImageLoad = (key) => {
-    setIsLoading((prevState) => ({ ...prevState, [key]: false }))
-  }
+    window.scroll(0, 0)
+  }, [])
 
   return (
     <section>
       <div className="bg-cover bg-no-repeat bg-center min-w-[160%] md:min-w-[100%] w-full h-screen text-center flex flex-col justify-center items-center px-6 pt-50 mb-20"
-      style={{ backgroundImage: `url(${LandingBG})` }}>
+        style={{ backgroundImage: `url(${LandingBG})` }}>
 
         <h1 className="font-archivo text-4xl md:text-6xl text-white font-bold drop-shadow-md">
           Welcome to HCLERALD Limited
@@ -32,44 +22,34 @@ function Landing() {
           ...your premier source for locally made products crafted by skilled
           artisans.
         </p>
-        <Link to='/about-us'><button className="mt-6 px-8 py-3 text-white border border-white rounded-full font-semibold text-lg md:text-xl hover:bg-white/50 backdrop-blur-lg hover:text-black transition-all">
-          About us
-        </button></Link>
+        <Link to='/about-us'>
+          <button className="mt-6 px-8 py-3 text-white border border-white rounded-full font-semibold text-lg md:text-xl hover:bg-white/50 backdrop-blur-lg hover:text-black transition-all">
+            About us
+          </button>
+        </Link>
       </div>
-    
+
       <div className="px-6 md:px-12 flex flex-col gap-20 font-inter min-w-[160%] md:min-w-[100%]">
-      
+
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-between">
           <p className="text-lg md:text-2xl leading-relaxed md:pr-8 max-w-[50%]">
             Our mission is to bridge the gap between talented local creators and customers both at home and abroad.
           </p>
           <div className="relative w-full md:w-1/2">
-            {isLoading.hand && (
-              <div className="w-full h-64 bg-gray-200 rounded-3xl animate-pulse"></div>
-            )}
             <img
               src={Hand}
               alt="Two hands shaking"
-              className={`rounded-3xl w-full h-auto transition-opacity duration-500 ${
-                isLoading.hand ? 'opacity-0' : 'opacity-100'
-              }`}
-              onLoad={() => handleImageLoad('hand')}
+              className="rounded-3xl w-full h-auto"
             />
           </div>
         </div>
 
         <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-16 items-center justify-between">
           <div className="relative w-full md:w-1/2">
-            {!isLoading.clay && (
-              <div className="w-full h-64 bg-gray-200 rounded-3xl animate-pulse"></div>
-            )}
             <img
               src={Clay}
               alt="Clay molding process"
-              className={`rounded-3xl w-full min-w-[45vw] h-auto transition-opacity duration-500 ${
-                isLoading.clay ? 'opacity-0' : 'opacity-100'
-              }`}
-              onLoad={() => handleImageLoad('clay')}
+              className="rounded-3xl w-full min-w-[45vw] h-auto"
             />
           </div>
           <div className="text-center md:text-left">
@@ -84,16 +64,10 @@ function Landing() {
 
         <div className="flex flex-col items-center gap-8">
           <div className="relative w-full">
-            {isLoading.thanks && (
-              <div className="w-full h-64 bg-gray-200 rounded-3xl animate-pulse"></div>
-            )}
             <img
               src={Thanks}
               alt="Thanks for shopping local banner"
-              className={`rounded-3xl w-full h-[35em]  transition-opacity duration-500 ${
-                isLoading.thanks ? 'opacity-0' : 'opacity-100'
-              }`}
-              onLoad={() => handleImageLoad('thanks')}
+              className="rounded-3xl w-full h-[35em]"
             />
           </div>
           <p className="text-center text-lg md:text-2xl leading-relaxed max-w-3xl">
