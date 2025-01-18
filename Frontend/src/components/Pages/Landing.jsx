@@ -60,7 +60,7 @@ function Landing() {
 
         <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-16 items-center justify-between">
           <div className="relative w-full md:w-1/2">
-            {isLoading.clay && (
+            {!isLoading.clay && (
               <div className="w-full h-64 bg-gray-200 rounded-3xl animate-pulse"></div>
             )}
             <img
