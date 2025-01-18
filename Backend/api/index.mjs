@@ -1,9 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import authRouter from '../routes/authRoute.js'
-import userRouter from '../routes/userRoute.js'
-import quoteRouter from '../routes/quoteRoute.js'
+import authRouter from './authRoute.js'
+import userRouter from './userRoute.js'
+import quoteRouter from './quoteRoute.js'
 import path from 'path'
 
 const __dirname = path.resolve()
