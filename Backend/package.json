@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./api/index.mjs",
     "start": "node ./api/index.mjs",
-    "build": "echo 'No build step required for backend'"
+    "build": "npm install"
   },
   "repository": {
     "type": "git",
